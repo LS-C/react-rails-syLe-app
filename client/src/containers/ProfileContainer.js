@@ -14,7 +14,6 @@ class ProfileContainer extends Component {
       console.log(this.props.profile)
       return(
         <div>
-          <h2>Profile Page</h2>
           <Profile profile={this.props.profile} />
         </div>
       )

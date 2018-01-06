@@ -14,21 +14,8 @@ class NavBar extends Component {
         <Menu.Item name='home'>
           <NavLink to="/" exact style={{margin:"1em", color: 'black'}}>Home</NavLink>
         </Menu.Item>
-        <Menu.Item name='recommendations'>
-          <Dropdown item text='Recommendations'>
-            <Dropdown.Menu>
-              <Dropdown.Item style={{margin:"1em"}}>Electronics</Dropdown.Item>
-              {this.props.loggedStatus ?
-              <Dropdown.Item>
-                <NavLink to="/recommendations" exact style={{margin:"1em", color: 'black'}}>Recommendations</NavLink>
-              </Dropdown.Item>
-              :
-              null }
-            </Dropdown.Menu>
-          </Dropdown>
-        </Menu.Item>
 
-        <Menu.Item name='submit'>
+        <Menu.Item name='News & Stories'>
             <Dropdown item text='News & Stories'>
               <Dropdown.Menu>
                 <Dropdown.Item style={{margin:"1em"}}>Electronics</Dropdown.Item>
@@ -48,6 +35,20 @@ class NavBar extends Component {
               </Dropdown.Menu>
             </Dropdown>
         </Menu.Item>
+        
+        <Menu.Item name='recommendations'>
+        <Dropdown item text='Recommendations'>
+        <Dropdown.Menu>
+        <Dropdown.Item style={{margin:"1em"}}>Electronics</Dropdown.Item>
+        {this.props.loggedStatus ?
+          <Dropdown.Item>
+          <NavLink to="/recommendations" exact style={{margin:"1em", color: 'black'}}>Recommendations</NavLink>
+          </Dropdown.Item>
+          :
+          null }
+          </Dropdown.Menu>
+          </Dropdown>
+          </Menu.Item>
 
         {!this.props.loggedStatus ?
         <Menu.Menu position='right'>

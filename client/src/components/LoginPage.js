@@ -37,10 +37,10 @@ class LoginPage extends Component {
       store.set('id', id );
       if (auth_token) {
         this.props.loginStatus()
+        this.props.history.push('/')
       } else {
         console.log('error')
       }
-      this.props.history.push('/')
     })
   }
 

@@ -18,9 +18,12 @@ class RecommendsQueryBar extends Component {
   }
 
   render() {
-    console.log(this.state.query)
+    const style = {
+      top: '2em'
+    }
     return (
-      <div>
+      <div style={style}>
+      <h2> Culture Recommendations / Artist, Book, Movies</h2>
       <form onSubmit={this.handleSubmit}>
         <Input size='small' type='text' placeholder='Search...' action value={this.state.query} onChange={this.handleChange}>
         <input />

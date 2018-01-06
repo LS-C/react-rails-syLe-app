@@ -14,9 +14,12 @@ class MostSavedArticlesContainer extends Component {
 
 
   render() {
+    const articles=this.props.articles.filter(article =>
+      article.likes.length>0
+    )
     return(
       <div>
-        <TrendingNews articles={this.props.articles} />
+        <TrendingNews articles={articles} />
       </div>
     )
   }
