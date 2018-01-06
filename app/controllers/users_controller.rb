@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   # , only: [:create, :show]
   # skip_before_action :verify_authenticity_token, only: [:create]
 
+
+
   prepend SimpleCommand
 
   def show
     user = User.find(params[:id])
-    render json: user
+      render json: user
   end
 
   def create

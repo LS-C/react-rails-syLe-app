@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   post '/login', to: "authentication#authenticate"
 
   post '/signup', to: "users#create"
@@ -16,8 +17,6 @@ Rails.application.routes.draw do
   post '/articles', to: "articles#create"
 
   post '/articles/:id/saves' => 'articles#saves', as: :saves
-
-
 
 
 end

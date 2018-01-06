@@ -2,6 +2,7 @@ export function login(data) {
   return fetch('http://localhost:3000/login', {
     method: 'post',
     headers: {'Content-Type':'application/json'},
+    credentials: 'same-origin',
     body: data
   })
   .then(res=> res.json())
@@ -17,7 +18,6 @@ export function signup(data) {
     body: data
   })
   .then( res => res.json() )
-
 }
 
 export function changeSourceFormat(string) {

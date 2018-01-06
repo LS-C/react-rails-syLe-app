@@ -5,7 +5,8 @@ class RecommendationsContainer extends Component {
 
   fetchRecomm(query) {
     const q = query
-    fetch(`https://tastedive.com/api/similar?q=${q}&k=`)
+    const T_API_KEY =""
+    fetch(`https://tastedive.com/api/similar?q=${q}&k=${T_API_KEY}`)
     .then(res => res.json())
     .then(json => console.log(json.Similar))
     }
