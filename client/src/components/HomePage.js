@@ -10,11 +10,9 @@ import { logout } from '../actions/login';
 
 
 
-
-
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       userEmail: null
@@ -41,20 +39,12 @@ class HomePage extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleClick = () => {
+    console.log("Hey")
+  }
 
   renderContent() {
     const { userEmail } = this.state;
-    // const style = {
-    //   position: 'absolute',
-    //   top: 74,
-    //   left: 0,
-    //   bottom:0,
-    //   right:0,
-    //   height:'100%',
-    //   width: '100%',
-    //   overflowX: 'hidden',
-    //   backgroundColor: '#F5F4F1',
-    // }
 
     const welcome = {
        position: 'fixed',
@@ -65,16 +55,26 @@ class HomePage extends React.Component {
        fontSize: '16px'
     }
 
-
     if (this.props.loggedStatus) {
       return (
         <div>
         <h3>Welcome {userEmail}</h3>
           <div>
-          <Button circular color='facebook' icon='facebook' />
-          <Button circular color='twitter' icon='twitter' />
-          <Button circular color='linkedin' icon='linkedin' />
-          <Button circular color='google plus' icon='google plus' />
+            <a href="https://en-gb.facebook.com/login/" target="_blank">
+              <Button circular color='facebook' icon='facebook' />
+            </a>
+            <a href="https://www.instagram.com/?hl=en" target="_blank">
+            <Button circular color='instagram' icon='instagram' />
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+              <Button circular color='twitter' icon='twitter' />
+            </a>
+            <a href="https://www.linkedin.com/">
+              <Button circular color='linkedin' icon='linkedin' />
+            </a>
+            <a href="https://plus.google.com/discover" target="_blank">
+              <Button circular color='google plus' icon='google plus' />
+            </a>
           </div>
           <div>
           <WeatherContainer />
@@ -95,19 +95,15 @@ class HomePage extends React.Component {
       )
   }
 
-  renderSiteEnterLinks = () =>
-    <div>
-      <Link to={'/login'} style={{margin: '1em'}}>Login</Link>
-      <Link to={'/signup'}>SignUp</Link>
-    </div>
-
-    handleLogout = () => {
-      this.props.logout()
-    }
-
-
-
-
+  // renderSiteEnterLinks = () =>
+  //   <div>
+  //     <Link to={'/login'} style={{margin: '1em'}}>Login</Link>
+  //     <Link to={'/signup'}>SignUp</Link>
+  //   </div>
+  //
+  //   handleLogout = () => {
+  //     this.props.logout()
+  //   }
 
 
 render() {
