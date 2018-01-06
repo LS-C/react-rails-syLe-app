@@ -1,0 +1,42 @@
+class UsersController < ApplicationController
+  # skip_before_action :authenticate
+  skip_before_action :authenticate_request
+  # , only: [:create, :show]
+  # skip_before_action :verify_authenticity_token, only: [:create]
+
+  prepend SimpleCommand
+
+  def show
+    user = User.find(params[:id])
+    render json: user
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      render json: @user
+    else
+      render json: { message: "what's the message" }
+    end
+  end
+
+  def likes
+    @user = User.find(params[:id])
+    @likes = Like.where(user_id: @user.id)
+    article_ids = []
+    @likes.each do |like|
+      article_ids << like["article_id"]
+    end
+    @articles = Article.find(article_ids)
+      render json: @articles
+  end
+
+
+
+
+  private
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+end
