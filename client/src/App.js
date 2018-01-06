@@ -6,7 +6,7 @@ import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
 import SavedArticlesContainer from './containers/SavedArticlesContainer'
 import MostSavedArticlesContainer from './containers/MostSavedArticlesContainer';
-import RecommendationsContainer from './containers/RecommendationsContainer';
+import RecommendsContainer from './containers/RecommendsContainer';
 import ProfileContainer from './containers/ProfileContainer';
 
 import { Route, withRouter } from 'react-router-dom';
@@ -20,7 +20,7 @@ class App extends Component {
         <div>
           <Route exact path='/toparticles' component={MostSavedArticlesContainer} />
           <Route exact path='/articles' component={SavedArticlesContainer} />
-          <Route exact path='/recommendations' component={RecommendationsContainer} />
+          <Route exact path='/recommendations' component={RecommendsContainer} />
           <Route exact path='/profile' component={ProfileContainer} />
         </div>
       )

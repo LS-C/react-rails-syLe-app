@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Button } from 'semantic-ui-react';
 
-class RecommendationsQueryBar extends Component {
+class RecommendsQueryBar extends Component {
 
   state = {
       query: ""
@@ -32,4 +32,4 @@ class RecommendationsQueryBar extends Component {
   }
 }
 
-export default RecommendationsQueryBar
+export default RecommendsQueryBar
