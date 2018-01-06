@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchSavedArticles } from '../actions/news';
+import { fetchSavedArticles } from '../actions/newz';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Articles from '../components/Articles';

@@ -3,7 +3,7 @@ import NewsQueryBar from '../components/NewsQueryBar';
 import NewsShow from '../components/NewsShow';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchNews, fetchNewsWithSource, fetchHeadlines } from '../actions/news';
+import { fetchNews, fetchNewsWithSource, fetchHeadlines } from '../actions/newz';
 
 class NewsContainer extends React.Component {
 

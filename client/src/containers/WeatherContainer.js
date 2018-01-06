@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WeatherShow from '../components/WeatherShow';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import fetchWeather from '../actions/weather';
+import fetchWeather from '../actions/weathers';
 import { Loader, Segment } from 'semantic-ui-react';
 
 

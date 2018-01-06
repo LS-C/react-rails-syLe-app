@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTrendingArticles } from '../actions/news'
+import { fetchTrendingArticles } from '../actions/newz'
 import TrendingNews from '../components/TrendingNews'
 
 
