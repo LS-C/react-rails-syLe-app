@@ -17,7 +17,7 @@ export function fetchNewsWithSource(query, source) {
     dispatch({ type: 'LOADING_NEWS' });
     const NEWS_API_KEY = ''
     const NEWS_URL =
-    `https://newsapi.org/v2/everything?q=${query}&sources=${source}&apiKey=${NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?q=${query}&sources=${source}&languages=en&apiKey=${NEWS_API_KEY}`
     return fetch(NEWS_URL)
     .then(res=>res.json())
     .then(json => dispatch({ type: 'FETCH_NEWS', payload: json.articles }))

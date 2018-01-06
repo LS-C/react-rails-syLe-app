@@ -30,11 +30,10 @@ export const options = [
   { key: 'cnn', text: 'CNN', value: 'cnn' },
   { key: 'the-economist', text: 'The Economist', value: 'the-economist' },
   { key: 'google-news', text: 'Google News', value: 'google-news' },
-  { key: 'huffington-post', text: 'Huffington Post', value: 'huffington-post' },
   { key: 'mashable', text: 'Mashable', value: 'mashable' },
+  { key: 'national-geographic', text: 'National Geographic', value: 'national-geographic' },
+  { key: 'the-huffington-post', text: 'The Huffington Post', value: 'the-huffington-post' },
   { key: 'the-new-york-times', text: 'The New York Times', value: 'the-new-york-times' },
-  { key: 'the-national-geographic', text: 'The National Geographic', value: 'the-national-geographic' },
-  { key: 'the-guardian', text: 'The Guardian', value: 'the-guardian' },
   { key: 'the-verge', text: 'The Verge', value: 'the-verge' },
   { key: 'wired', text: 'Wired', value: 'wired' }
 ]

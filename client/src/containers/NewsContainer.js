@@ -20,9 +20,9 @@ class NewsContainer extends React.Component {
     console.log(source)
     if (source === 'all') {
       this.props.fetchNews(query)
-    } else if (source !=='' && source){
+    } else if (query !=='' && source){
       this.props.fetchNewsWithSource(query, source)
-    } else if (source ==="" && source) {
+    } else if (query ==="" && source) {
       this.props.fetchHeadlines(source)
     }
   }
