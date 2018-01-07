@@ -48,6 +48,11 @@ export function parseDate1(date) {
   return a.split(" ").slice(2,4).join(", ")
 }
 
+export function parseDate2(date) {
+  const a = new Date(date).toUTCString()
+  return a.split(" ").slice(1,4).join(" ")
+}
+
 export function removeArticle(articleId, id, description) {
   const data = JSON.stringify({
       article_id: articleId,

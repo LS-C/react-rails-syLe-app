@@ -4,8 +4,8 @@ const RecommendsShow = (props) =>
   <div>
     {props.recommends.map(recommend =>
       <div>
+      <p>Genre: {recommend.Type}</p><br/>
         <p>{recommend.Name}</p>
-        <p>Genre: {recommend.Type}</p><br/>
       </div>
     )}
   </div>

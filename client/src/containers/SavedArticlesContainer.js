@@ -3,7 +3,6 @@ import { fetchSavedArticles } from '../actions/newz';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Articles from '../components/Articles';
-import { Button } from 'semantic-ui-react';
 
 class SavedArticlesContainer extends React.Component {
 

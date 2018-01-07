@@ -1,20 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import store from 'store';
 import NewsContainer from '../containers/NewsContainer';
 import WeatherContainer from '../containers/WeatherContainer';
-import { Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout } from '../actions/login';
 
 
 
-
-
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       userEmail: null
@@ -41,20 +37,12 @@ class HomePage extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleClick = () => {
+    console.log("Hey")
+  }
 
   renderContent() {
     const { userEmail } = this.state;
-    // const style = {
-    //   position: 'absolute',
-    //   top: 74,
-    //   left: 0,
-    //   bottom:0,
-    //   right:0,
-    //   height:'100%',
-    //   width: '100%',
-    //   overflowX: 'hidden',
-    //   backgroundColor: '#F5F4F1',
-    // }
 
     const welcome = {
        position: 'fixed',
@@ -65,16 +53,39 @@ class HomePage extends React.Component {
        fontSize: '16px'
     }
 
-
     if (this.props.loggedStatus) {
+      const styleSpace = {
+        margin: '0.3em'
+      }
       return (
         <div>
         <h3>Welcome {userEmail}</h3>
           <div>
-          <Button circular color='facebook' icon='facebook' />
-          <Button circular color='twitter' icon='twitter' />
-          <Button circular color='linkedin' icon='linkedin' />
-          <Button circular color='google plus' icon='google plus' />
+          <a href="https://en-gb.facebook.com/login/" target="_blank"
+          rel="noopener noreferrer" style={styleSpace}>
+             <img src={require('../images/brandIcons/facebook-logo.png')} alt=""
+             style={{height: '2em', width: '2em'}}/>
+           </a>
+          <a href="https://www.instagram.com/?hl=en" target="_blank"
+          rel="noopener noreferrer" style={styleSpace} >
+             <img src={require('../images/brandIcons/instagram-logo.png')} alt=""
+             style={{height: '3em', width: '3em'}}/>
+           </a>
+            <a href="https://twitter.com/" target="_blank"
+            rel="noopener noreferrer" style={styleSpace}>
+              <img src={require('../images/brandIcons/twitter-logo.png')} alt=""
+              style={{height: '2em', width: '2em'}}/>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank"
+            rel="noopener noreferrer" style={styleSpace}>
+              <img src={require('../images/brandIcons/linkedin-logo.png')} alt=""
+              style={{height: '2em', width: '2em'}}/>
+            </a>
+            <a href="https://plus.google.com/discover" target="_blank"
+            rel="noopener noreferrer" style={styleSpace}>
+              <img src={require('../images/brandIcons/google-plus-logo.png')} alt=""
+              style={{height: '2em', width: '2em'}}/>
+            </a>
           </div>
           <div>
           <WeatherContainer />
@@ -94,20 +105,6 @@ class HomePage extends React.Component {
         </div>
       )
   }
-
-  renderSiteEnterLinks = () =>
-    <div>
-      <Link to={'/login'} style={{margin: '1em'}}>Login</Link>
-      <Link to={'/signup'}>SignUp</Link>
-    </div>
-
-    handleLogout = () => {
-      this.props.logout()
-    }
-
-
-
-
 
 
 render() {
