@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Recommend from './Recommend';
 
 const RecommendsShow = (props) =>
   <div>
     {props.recommends.map(recommend =>
-      <div>
-      <p>Genre: {recommend.Type}</p><br/>
-        <p>{recommend.Name}</p>
-      </div>
+      <Recommend recommend={recommend} />
     )}
   </div>
+
 
 export default RecommendsShow
 
