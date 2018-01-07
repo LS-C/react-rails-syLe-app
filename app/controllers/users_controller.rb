@@ -18,7 +18,16 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: { message: "what's the message" }
+      render json: { message: "new user not created" }
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      render json: @user
+    else
+      render json: { message: 'profile has not been updated'}
     end
   end
 
@@ -32,8 +41,6 @@ class UsersController < ApplicationController
     @articles = Article.find(article_ids)
       render json: @articles
   end
-
-
 
 
   private

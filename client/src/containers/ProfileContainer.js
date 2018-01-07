@@ -14,7 +14,7 @@ class ProfileContainer extends Component {
       console.log(this.props.profile)
       return(
         <div>
-          <Profile profile={this.props.profile} />
+          <Profile profile={this.props.profile} email={this.props.profile.email}/>
         </div>
       )
     }
