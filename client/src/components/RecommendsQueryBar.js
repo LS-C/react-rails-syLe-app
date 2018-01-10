@@ -18,11 +18,15 @@ class RecommendsQueryBar extends Component {
   }
 
   render() {
-    const style = {
-      top: '2em'
+    const queryBar = {
+       position: 'absolute',
+       top: '30%',
+       left: '50%',
+       transform: 'translate(-50%, -50%)',
+       fontFamily: "Montserrat"
     }
     return (
-      <div style={style}>
+      <div style={queryBar}>
       <h2> Artist, Book & Movies </h2>
       <form onSubmit={this.handleSubmit}>
         <Input size='small' type='text' placeholder='Search...' action value={this.state.query} onChange={this.handleChange}>

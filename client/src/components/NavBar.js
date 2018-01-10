@@ -8,8 +8,11 @@ import { logout } from '../actions/login';
 class NavBar extends Component {
 
   render() {
+    const fontType = {
+       fontFamily: "Montserrat"
+    }
     return(
-      <div>
+      <div style={fontType}>
       <Menu >
         <Menu.Item name='home'>
           <NavLink to="/" exact style={{margin:"1em", color: 'black'}}>Home</NavLink>
@@ -35,7 +38,7 @@ class NavBar extends Component {
               </Dropdown.Menu>
             </Dropdown>
         </Menu.Item>
-        
+
         <Menu.Item name='recommendations'>
         <Dropdown item text='Recommendations'>
         <Dropdown.Menu>

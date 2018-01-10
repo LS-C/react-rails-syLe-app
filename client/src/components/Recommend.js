@@ -7,9 +7,18 @@ class Recommend extends React.Component {
 
 
   render() {
+    const style = {
+      float: 'left',
+      padding: '10px',
+      marginTop: '10px',
+      marginBottom: '40px',
+      marginLeft: '12px',
+      margin: '1em'
+    }
+
     return(
       <div>
-        <Card>
+        <Card style={style}>
           <Card.Content>
             <Card.Header>
               {this.props.recommend.Name}

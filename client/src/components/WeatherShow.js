@@ -4,7 +4,8 @@ const style= {
   position: 'absolute',
   top: '8em',
   right: '1em',
-  color: 'black'
+  color: 'black',
+  fontFamily: 'Open Sans'
 }
 
 const weather= {

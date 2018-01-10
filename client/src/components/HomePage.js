@@ -44,13 +44,32 @@ class HomePage extends React.Component {
   renderContent() {
     const { userEmail } = this.state;
 
+    const style = {
+      position: 'fixed',
+      top: 62,
+      left: 0,
+      width: '100%',
+      backgroundColor: "black",
+      height: '100vh'
+    }
+
     const welcome = {
        position: 'fixed',
        top: '50%',
        left: '50%',
        transform: 'translate(-50%, -50%)',
        color: 'white',
-       fontSize: '16px'
+       fontSize: '24px',
+       fontFamily: "Montserrat"
+    }
+
+    const newsBar = {
+       position: 'absolute',
+       top: '30%',
+       left: '50%',
+       transform: 'translate(-50%, -50%)',
+       fontFamily: "Montserrat"
+      //  color: 'white',
     }
 
     if (this.props.loggedStatus) {
@@ -92,15 +111,17 @@ class HomePage extends React.Component {
           </div>
           <div>
           </div>
+          <div style={newsBar}>
             <NewsContainer />
+          </div>
         </div>
       );
     }
     else
       return (
-        <div className='welcome-page'>
+        <div className='welcome-page' style={style}>
         <p style={welcome}>
-          Welcome
+          Landing Zone
         </p>
         </div>
       )

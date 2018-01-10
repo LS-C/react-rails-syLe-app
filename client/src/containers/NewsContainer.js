@@ -28,13 +28,13 @@ class NewsContainer extends React.Component {
   }
 
   render() {
-    const style= {
-      position: 'absolute',
-      top: '16em',
-      right: '1em'
-    }
+    // const style= {
+    //   position: 'absolute',
+    //   top: '16em',
+    //   right: '1em'
+    // }
     return (
-      <div style={style}>
+      <div>
         <NewsQueryBar handleOnSubmit={this.handleOnSubmit}/>
         <NewsShow query={this.state.query} loading={this.props.loading} articles={this.props.articles}/>
       </div>

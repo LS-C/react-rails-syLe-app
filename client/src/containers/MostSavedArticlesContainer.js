@@ -11,15 +11,18 @@ class MostSavedArticlesContainer extends Component {
       this.props.fetchTrendingArticles()
   }
 
+  shouldComponentUpdate(nextProps) {
+    return this.props.articles !== nextProps.articles
+  }
 
 
   render() {
-    const articles=this.props.articles.filter(article =>
-      article.likes.length>0
-    )
+    const a = this.props.articles.filter(article => {
+      return article.likes.length > 0
+    })
     return(
       <div>
-        <TrendingNews articles={articles} />
+        <TrendingNews articles={a} />
       </div>
     )
   }
@@ -34,3 +37,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MostSavedArticlesContainer)
+
+MostSavedArticlesContainer.defaultProps = {
+  articles: []
+}
