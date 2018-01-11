@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Input, Button } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
+import '../App.css'
+
 
 class RecommendsQueryBar extends Component {
 
@@ -18,16 +20,14 @@ class RecommendsQueryBar extends Component {
   }
 
   render() {
-    const style = {
-      top: '2em'
-    }
+
     return (
-      <div style={style}>
-      <h2> Culture Recommendations / Artist, Book, Movies</h2>
-      <form onSubmit={this.handleSubmit}>
+      <div className="query-bar">
+      <h2 className="font"> Artists, Books & Movies </h2>
+      <form className="font" onSubmit={this.handleSubmit}>
         <Input size='small' type='text' placeholder='Search...' action value={this.state.query} onChange={this.handleChange}>
         <input />
-          <Button type='submit'>Search</Button>
+          <button className="button-submit" onSubmit={this.handleSubmit}>SEARCH</button>
         </Input>
         </form>
       </div>

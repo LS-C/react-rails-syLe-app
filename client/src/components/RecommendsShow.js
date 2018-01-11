@@ -1,14 +1,21 @@
 import React from 'react';
+import Recommend from './Recommend';
+
+const style= {
+  marginTop: '16em',
+  marginLeft: '4em',
+  color: 'black',
+  fontFamily: "Montserrat"
+}
+
 
 const RecommendsShow = (props) =>
-  <div>
+  <div style={style}>
     {props.recommends.map(recommend =>
-      <div>
-      <p>Genre: {recommend.Type}</p><br/>
-        <p>{recommend.Name}</p>
-      </div>
+      <Recommend recommend={recommend} />
     )}
   </div>
+
 
 export default RecommendsShow
 

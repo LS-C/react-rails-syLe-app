@@ -4,7 +4,9 @@ import { login } from '../services/utils';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loginStatus } from '../actions/login';
-import { Form } from 'semantic-ui-react';
+import { Form, Message } from 'semantic-ui-react';
+import '../App.css'
+
 
 class LoginPage extends Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class LoginPage extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      renderError: false
     }
   }
 
@@ -36,9 +39,11 @@ class LoginPage extends Component {
       store.set('auth_token', auth_token );
       store.set('id', id );
       if (auth_token) {
+        this.setState({ renderError: false })
         this.props.loginStatus()
         this.props.history.push('/')
       } else {
+        this.setState({ renderError: true })
         console.log('error')
       }
     })
@@ -46,27 +51,33 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths='equal'>
+      <div className='login-form'>
+      <h2 className="font">Log In</h2>
+        <Form error onSubmit={this.handleSubmit}>
             <Form.Input onChange={this.handleChange}
+            onFocus={this.handleOnFocus}
             type="email"
             name="email"
-            value={this.state.email} label='Email' placeholder="Enter your e-mail" />
+            value={this.state.email} label='Email' placeholder="Enter your e-mail"
+            width={4}/>
             <Form.Input onChange={this.handleChange}
             type="password"
             name="password"
             value={this.state.password}
             label='Password'
             placeholder="Enter your password"
-             />
-          </Form.Group>
-          <Form.Button>Submit</Form.Button>
+            width={4}
+            />
+            {this.state.renderError ?
+            <Message error content='Please enter valid e-mail address / password.' width={6}/>
+            : null }
+            <button className="button-submit" onSubmit={this.handleSubmit}>SUBMIT</button>
         </Form>
       </div>
     );
   }
 }
+
 
 const mapStateToProps = (state) => {
   return { loggedStatus: state.login.loggedIn }

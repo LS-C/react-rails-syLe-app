@@ -8,6 +8,8 @@ import SavedArticlesContainer from './containers/SavedArticlesContainer'
 import MostSavedArticlesContainer from './containers/MostSavedArticlesContainer';
 import RecommendsContainer from './containers/RecommendsContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import SpotifyContainer from './containers/SpotifyContainer';
+
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -26,18 +28,18 @@ class App extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps !== this.props.loggedIn
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   return nextProps !== this.props.loggedIn
+  // }
 
   render() {
-    console.log('from app level', this.props.loggedIn)
     return (
       <div className="container">
         <NavBar />
           <Route exact path='/' component={HomePage} />
           <Route exact path='/login' component={LoginPage} />
           <Route exact path='/signup' component={SignupPage} />
+
           {this.logInRoutes()}
       </div>
     );

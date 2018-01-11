@@ -11,10 +11,10 @@ class ProfileContainer extends Component {
     }
 
     render() {
-      console.log(this.props.profile)
+      console.log('from profile container', this.props.profile.email)
       return(
         <div>
-          <Profile profile={this.props.profile} email={this.props.profile.email}/>
+          <Profile profile={this.props.profile} email={this.props.profile.email} fetchProfile={this.props.fetchProfile} />
         </div>
       )
     }

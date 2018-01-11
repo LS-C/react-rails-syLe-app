@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Select, Input } from 'semantic-ui-react';
-import { options, changeSourceFormat } from '../services/utils'
+import { Select, Input } from 'semantic-ui-react';
+import { options, changeSourceFormat } from '../services/utils';
+import '../App.css'
 
 class NewsQueryBar extends Component {
   state = {
@@ -30,7 +31,8 @@ class NewsQueryBar extends Component {
         <Input size='small' type='text' placeholder='Search...' value={this.state.query} onChange={this.handleChange} action>
         <input />
         <Select compact options={options} defaultValue='all'  onChange={this.handleOptionsChange} style={{width: '120px'}}/>
-          <Button type='submit'>Search</Button>
+          <button className="button-submit" onSubmit={this.handleSubmit}>SEARCH</button>
+
         </Input>
         </form>
       </div>

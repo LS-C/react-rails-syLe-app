@@ -70,3 +70,8 @@ export function removeArticle(articleId, id, description) {
   })
   .then(res => res.json)
 }
+
+export function fetchContent(q) {
+  return fetch(`https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=${q}&limit=5`)
+  .then(res => res.json())
+}

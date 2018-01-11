@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { parseDate1 } from '../services/utils';
-import { Form } from 'semantic-ui-react';
+import { Form, Button, Input } from 'semantic-ui-react';
 import store from 'store';
 
 class Profile extends Component {
@@ -25,7 +25,6 @@ class Profile extends Component {
     const data = JSON.stringify({
       email
     })
-    console.log(data)
     fetch(`http://localhost:3000/users/${id}`, {
       method: 'put',
       headers: {'Content-Type':'application/json'},
@@ -33,9 +32,9 @@ class Profile extends Component {
       body: data
     })
     .then(res=> res.json())
-    .then( json => console.log(json))
+    .then( json => this.setState({ editEmail: false }))
+    this.props.fetchProfile()
   }
-
 
 
   render() {
@@ -43,26 +42,36 @@ class Profile extends Component {
       position: 'absolute',
       top: '10em'
     }
+
+    const style={
+      display: 'inline-block'
+    }
+
     const { email, created_at } = this.props.profile
     const { editEmail } = this.state
     console.log(this.state.email)
+    console.log(this.state.editEmail)
+    console.log(this.props.profile.email)
+
     return(
       <div style={spaceStyle}>
         {editEmail ?
         <div>
-          <Form.Input label='Email' type='email' defaultValue={email} onChange={this.handleChange} />
-          <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
+          <label htmlFor="Email: ">Email: </label>
+          <Input type='email' defaultValue={email} onChange={this.handleChange} style={{display: "inline-block", margin: '1em'}}/>
+          <Button onClick={this.handleSubmit} size="medium" content="Submit"/>
         </div>
         :
         <div>
-        <p>Email: {email}</p>
+        <p style={{display: "inline-block", margin: '1em'}}>Email: {email}</p>
         <button onClick={this.handleEditEmailChange}>Edit</button>
         </div> }
         <p>Member Since: {parseDate1(created_at)}</p>
       </div>
+
+
     )
   }
 }
-
 
 export default Profile

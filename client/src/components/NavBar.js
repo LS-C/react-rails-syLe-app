@@ -8,24 +8,31 @@ import { logout } from '../actions/login';
 class NavBar extends Component {
 
   render() {
+    const linkStyle = {
+      margin: '1em',
+      color: 'black',
+      fontFamily: 'Montserrat',
+      fontSize: '12.4px'
+    }
+
     return(
       <div>
-      <Menu >
+      <Menu className="font-size">
         <Menu.Item name='home'>
-          <NavLink to="/" exact style={{margin:"1em", color: 'black'}}>Home</NavLink>
+          <NavLink to="/" exact style={linkStyle}>Home</NavLink>
         </Menu.Item>
 
         <Menu.Item name='News & Stories'>
             <Dropdown item text='News & Stories'>
               <Dropdown.Menu>
-                <Dropdown.Item style={{margin:"1em"}}>Electronics</Dropdown.Item>
+                <Dropdown.Item style={linkStyle}>Electronics</Dropdown.Item>
                 {this.props.loggedStatus ?
                   <div>
                 <Dropdown.Item>
-                  <NavLink to="/toparticles" exact style={{margin:"1em", color: 'black'}}>Trending Articles</NavLink>
+                  <NavLink to="/toparticles" exact style={linkStyle}>Trending Articles</NavLink>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <NavLink to='/articles' exact style={{margin:"1em", color: 'black'}}>
+                  <NavLink to='/articles' exact style={linkStyle}>
                   Saved articles
                   </NavLink>
                 </Dropdown.Item>
@@ -35,14 +42,14 @@ class NavBar extends Component {
               </Dropdown.Menu>
             </Dropdown>
         </Menu.Item>
-        
+
         <Menu.Item name='recommendations'>
         <Dropdown item text='Recommendations'>
         <Dropdown.Menu>
-        <Dropdown.Item style={{margin:"1em"}}>Electronics</Dropdown.Item>
+        <Dropdown.Item style={linkStyle}>Electronics</Dropdown.Item>
         {this.props.loggedStatus ?
           <Dropdown.Item>
-          <NavLink to="/recommendations" exact style={{margin:"1em", color: 'black'}}>Recommendations</NavLink>
+          <NavLink to="/recommendations" exact style={linkStyle}>Recommendations</NavLink>
           </Dropdown.Item>
           :
           null }
@@ -53,11 +60,11 @@ class NavBar extends Component {
         {!this.props.loggedStatus ?
         <Menu.Menu position='right'>
           <Menu.Item name='signup'>
-           <NavLink to="/signup" exact style={{margin:"1em", color: 'black'}}>Signup</NavLink>
+           <NavLink to="/signup" exact style={linkStyle}>Signup</NavLink>
           </Menu.Item>
 
           <Menu.Item name='login'>
-          <NavLink to="/login" exact style={{margin:"1em", color: 'black'}}>Login</NavLink>
+          <NavLink to="/login" exact style={linkStyle}>Login</NavLink>
           </Menu.Item>
           </Menu.Menu>
           :
@@ -66,12 +73,12 @@ class NavBar extends Component {
           {this.props.loggedStatus ?
           <Menu.Menu position='right'>
             <Menu.Item name='profile' >
-             <NavLink to="/profile" exact style={{margin:"1em", color: 'black'}} >
+             <NavLink to="/profile" exact style={linkStyle} >
             <i className="user circle icon"></i>
              </NavLink>
             </Menu.Item>
             <Menu.Item name='logout' >
-             <NavLink to="/" exact style={{margin:"1em", color: 'black'}}
+             <NavLink to="/" exact style={linkStyle}
              onClick={this.props.logout} >Logout</NavLink>
             </Menu.Item>
           </Menu.Menu>

@@ -1,0 +1,59 @@
+
+.login-form {
+  position: relative;
+  top: 10em;
+  left: 38em;
+  font-family: Montserrat;
+
+}
+
+.signup-form {
+  position: relative;
+  top: 8em;
+  left: 38em;
+  font-family: Montserrat;
+}
+
+
+.font {
+  font-family: Montserrat;
+}
+
+.font-size {
+  font-family: Montserrat !important;
+  font-size: 12.4px !important
+
+}
+
+.button-submit {
+  border: 1px solid grey;
+  height: 40px;
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: Montserrat;
+}
+
+.button-submit a {
+  color: grey;
+}
+
+.query-bar {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat'
+
+}
+
+.recommend-card {
+  font-family: 'Montserrat';
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 12px;
+  margin-right: 2em;
+}
