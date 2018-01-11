@@ -33,8 +33,8 @@ class Profile extends Component {
     })
     .then(res=> res.json())
     .then( json => this.setState({ editEmail: false }))
+    this.props.fetchProfile()
   }
-
 
 
   render() {
@@ -50,6 +50,9 @@ class Profile extends Component {
     const { email, created_at } = this.props.profile
     const { editEmail } = this.state
     console.log(this.state.email)
+    console.log(this.state.editEmail)
+    console.log(this.props.profile.email)
+
     return(
       <div style={spaceStyle}>
         {editEmail ?
@@ -65,9 +68,10 @@ class Profile extends Component {
         </div> }
         <p>Member Since: {parseDate1(created_at)}</p>
       </div>
+
+
     )
   }
 }
-
 
 export default Profile

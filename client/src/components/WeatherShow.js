@@ -5,7 +5,7 @@ const style= {
   top: '8em',
   right: '1em',
   color: 'black',
-  fontFamily: 'Open Sans'
+  fontFamily: "Montserrat"
 }
 
 const weather= {
@@ -25,7 +25,7 @@ const WeatherShow = (props) =>
     <div style={style}>
       <p>{props.location}</p>
       <p style={{display: "inline-block"}}>{props.weather.weather}</p>
-      <img src={require(`../images/weatherIcons/Overcast.png`)} alt="" style={weather2}/> <br/>
+      <img src={require(`../images/weatherIcons/Overcast.png`)} alt="" style={weather2}/> <br/ >
       <p style={{display: "inline-block"}}>{props.weather.temp_f}</p><img src={require('../images/weatherIcons/if_weather_22_2682829.png')} alt="" style={weather} />
 
 

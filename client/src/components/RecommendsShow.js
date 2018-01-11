@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Recommend from './Recommend';
 
 const style= {
@@ -7,6 +7,7 @@ const style= {
   color: 'black',
   fontFamily: "Montserrat"
 }
+
 
 const RecommendsShow = (props) =>
   <div style={style}>

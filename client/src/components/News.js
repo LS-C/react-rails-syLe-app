@@ -9,7 +9,6 @@ class News extends Component {
     return(
       <div>
         <h3>{this.props.article.title}</h3> <br/>
-
         <p>{this.props.article.description}</p>
         <p>{parseDate(this.props.article.publishedAt)}</p>
         <p>{this.props.article.source.name}</p> <br/>

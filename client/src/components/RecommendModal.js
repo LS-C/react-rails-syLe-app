@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Icon, Header, Button } from 'semantic-ui-react';
+import { Modal, Icon, Header } from 'semantic-ui-react';
 import { fetchContent } from '../services/utils';
 
 class RecommendModal extends Component {
@@ -12,7 +12,7 @@ class RecommendModal extends Component {
     fetchContent(this.props.info)
     .then(json => this.setState({ content: json[2][0]}))
   }
- 
+
   componentWillReceiveProps(nextProps){
     fetchContent(nextProps.info)
     .then(json => this.setState({ content: json[2][0]}))

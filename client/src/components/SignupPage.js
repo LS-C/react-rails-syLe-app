@@ -4,7 +4,8 @@ import { login, signup } from '../services/utils';
 import { Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginStatus } from '../actions/login'
+import { loginStatus } from '../actions/login';
+import '../App.css'
 
 class SignupPage extends Component {
   constructor(props) {
@@ -59,20 +60,21 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <div>
-      <h1>Sign Up</h1>
+      <div className="signup-form">
+      <h2 className="font">Sign Up</h2>
       <Form onSubmit={this.handleSubmit}>
-        <Form.Group widths='equal'>
           <Form.Input onChange={this.handleChange}
           type="email"
           name="email"
-          value={this.state.email} label='Email' placeholder="Enter your e-mail" />
+          value={this.state.email} label='Email' placeholder="Enter your e-mail"
+          width={4}/>
           <Form.Input onChange={this.handleChange}
           type="password"
           name="password"
           value={this.state.password}
           label='Password'
           placeholder="Enter your password"
+          width={4}
            />
          <Form.Input onChange={this.handleChange}
          type="password"
@@ -80,10 +82,10 @@ class SignupPage extends Component {
          value={this.state.passwordConfirmation}
          label='Password'
          placeholder="Confirm password"
+         width={4}
           />
           <input name="authenticity_token" type="hidden" value="token_value" />
-        </Form.Group>
-        <Form.Button>Submit</Form.Button>
+          <button className="button-submit" onSubmit={this.handleSubmit}>SUBMIT</button>
       </Form>
       </div>
 

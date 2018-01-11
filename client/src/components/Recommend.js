@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, Icon  } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import RecommendModal from './RecommendModal';
+import '../App.css'
 
 
 class Recommend extends React.Component {
-
 
   render() {
     const style = {
