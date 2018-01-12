@@ -2,6 +2,7 @@ import React from 'react';
 import store from 'store';
 import NewsContainer from '../containers/NewsContainer';
 import WeatherContainer from '../containers/WeatherContainer';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout } from '../actions/login';
@@ -30,9 +31,10 @@ const newsBar = {
   top: '30%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  fontFamily: "Montserrat"
-  //  color: 'white',
+  fontFamily: "Montserrat",
+  border: '1px solid black'
 }
+
 
 
 class HomePage extends React.Component {
@@ -110,12 +112,9 @@ class HomePage extends React.Component {
 
           <WeatherContainer />
 
+          <NewsContainer />
           </div>
-          <div>
-          </div>
-          <div style={newsBar}>
-            <NewsContainer />
-          </div>
+
         </div>
       );
     }

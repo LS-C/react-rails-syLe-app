@@ -17,8 +17,9 @@ class NewsShow extends Component {
   render() {
     const style= {
       position: 'absolute',
-      top: '5em'
+      top: '5em',
     }
+
     console.log(this.props)
     return (
       <div style={style}>

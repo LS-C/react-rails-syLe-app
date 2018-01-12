@@ -14,7 +14,6 @@ const TrendingNews = (props) =>
         </div>
       )}
     </Segment>
-    <Link to="/">Back to News Search</Link>
   </div>
 
 

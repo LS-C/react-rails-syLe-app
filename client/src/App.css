@@ -26,13 +26,17 @@
 }
 
 .button-submit {
-  border: 1px solid grey;
-  height: 40px;
+  border: 0.4px solid grey;
+  height: 36px;
   width: 100px;
   padding: 10px;
   text-align: center;
   cursor: pointer;
   font-family: Montserrat;
+}
+
+.button-submit:hover {
+  background-color: #F0F0F0;
 }
 
 .button-submit a {
@@ -56,4 +60,12 @@
   margin-bottom: 40px;
   margin-left: 12px;
   margin-right: 2em;
+}
+
+.profile {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat'
 }

@@ -54,17 +54,20 @@ class Profile extends Component {
     console.log(this.props.profile.email)
 
     return(
-      <div style={spaceStyle}>
+      <div className="profile">
         {editEmail ?
         <div>
-          <label htmlFor="Email: ">Email: </label>
+          <label htmlFor="Email:">Email: </label>
           <Input type='email' defaultValue={email} onChange={this.handleChange} style={{display: "inline-block", margin: '1em'}}/>
-          <Button onClick={this.handleSubmit} size="medium" content="Submit"/>
+          <button className="button-submit" onClick={this.handleSubmit}>SUBMIT</button>
+
         </div>
         :
         <div>
-        <p style={{display: "inline-block", margin: '1em'}}>Email: {email}</p>
-        <button onClick={this.handleEditEmailChange}>Edit</button>
+        <p style={{display: "inline-block", margin: '1em'}}>Email: </p><p style={{display: "inline-block", margin: '1em'}}>{email}</p>
+
+        <button className="button-submit" onClick={this.handleEditEmailChange}>EDIT</button>
+
         </div> }
         <p>Member Since: {parseDate1(created_at)}</p>
       </div>

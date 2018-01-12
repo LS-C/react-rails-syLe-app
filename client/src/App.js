@@ -8,7 +8,6 @@ import SavedArticlesContainer from './containers/SavedArticlesContainer'
 import MostSavedArticlesContainer from './containers/MostSavedArticlesContainer';
 import RecommendsContainer from './containers/RecommendsContainer';
 import ProfileContainer from './containers/ProfileContainer';
-import SpotifyContainer from './containers/SpotifyContainer';
 
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';

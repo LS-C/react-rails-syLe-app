@@ -4,6 +4,14 @@ import { bindActionCreators } from 'redux';
 import { fetchTrendingArticles } from '../actions/newz'
 import TrendingNews from '../components/TrendingNews'
 
+// const style1= {
+//   position: 'absolute',
+//   top: '20em',
+//   right: '1em',
+//   width: '20%',
+//   color: 'black',
+//   fontFamily: "Montserrat"
+// }
 
 class MostSavedArticlesContainer extends Component {
 

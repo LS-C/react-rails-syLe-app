@@ -33,8 +33,16 @@ class NewsContainer extends React.Component {
     //   top: '16em',
     //   right: '1em'
     // }
+    const style1= {
+      position: 'absolute',
+      top: '30%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      fontFamily: "Montserrat",
+    }
+
     return (
-      <div>
+      <div style={style1}>
         <NewsQueryBar handleOnSubmit={this.handleOnSubmit}/>
         <NewsShow query={this.state.query} loading={this.props.loading} articles={this.props.articles}/>
       </div>
