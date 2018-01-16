@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
-import HomePage from './components/HomePage';
+import MainPageContainer from './containers/MainPageContainer';
 import NavBar from './components/NavBar';
 import SavedArticlesContainer from './containers/SavedArticlesContainer'
 import MostSavedArticlesContainer from './containers/MostSavedArticlesContainer';
@@ -35,10 +35,9 @@ class App extends Component {
     return (
       <div className="container">
         <NavBar />
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/' component={MainPageContainer} />
           <Route exact path='/login' component={LoginPage} />
           <Route exact path='/signup' component={SignupPage} />
-
           {this.logInRoutes()}
       </div>
     );

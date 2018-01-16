@@ -14,6 +14,24 @@
   font-family: Montserrat;
 }
 
+.welcome-page {
+  position: fixed;
+  top: 62;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  height: 100vh;
+}
+
+.welcome {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-family: Montserrat;
+}
 
 .font {
   font-family: Montserrat;
@@ -22,7 +40,10 @@
 .font-size {
   font-family: Montserrat !important;
   font-size: 12.4px !important
+}
 
+.social-link-space {
+  margin: 0.3em;
 }
 
 .button-submit {
@@ -40,6 +61,24 @@
 }
 
 .button-submit a {
+  color: grey;
+}
+
+.button-submit-1 {
+  border: 0.4px solid grey;
+  height: 48px;
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: Montserrat;
+}
+
+.button-submit-1:hover {
+  background-color: #F0F0F0;
+}
+
+.button-submit-1 a {
   color: grey;
 }
 
@@ -67,5 +106,36 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Montserrat'
+    font-family: Montserrat;
 }
+
+.top-articles {
+  position: absolute;
+  top: 20em;
+  right: 1em;
+  left: 72em;
+  color: black;
+  font-family: Montserrat;
+  border: 1px solid black;
+}
+
+.news-container {
+  position: absolute;
+  top: 5em;
+  left: 0em;
+  right: 0em;
+  border: 1px solid black;
+}
+
+.article-card {
+  left: 1em;
+}
+
+.news {
+  top: 5em;
+  left: 0em;
+  right: 0em;
+}
+/*top: 5em;
+left: 0em;
+right: 0em;*/

@@ -10,14 +10,13 @@ class RecommendModal extends Component {
 
   componentDidMount() {
     fetchContent(this.props.info)
-    .then(json => this.setState({ content: json[2][0]}))
+    .then(json => this.setState({ content: json[2]}))
   }
 
   componentWillReceiveProps(nextProps){
     fetchContent(nextProps.info)
-    .then(json => this.setState({ content: json[2][0]}))
+    .then(json => this.setState({ content: json[2]}))
  }
-
 
 
   render() {

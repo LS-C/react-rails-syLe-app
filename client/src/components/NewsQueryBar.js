@@ -6,7 +6,8 @@ import '../App.css'
 class NewsQueryBar extends Component {
   state = {
     query: "",
-    source: "all"
+    source: "all",
+    sourceLength: ""
   }
 
   handleChange = e => {
@@ -21,17 +22,30 @@ class NewsQueryBar extends Component {
 
   handleOptionsChange = event => {
     const source = changeSourceFormat(event.target.innerText)
-    this.setState({ source })
+    const sourceLength = source.count
+    this.setState({
+      source,
+      sourceLength
+     })
+  }
+
+  buttonClassNames = () => {
+    if (this.state.source.length < 14 ) {
+      return 'button-submit'
+    } else {
+      return 'button-submit-1'
+    }
   }
 
   render() {
+    const btnClass = this.buttonClassNames()
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
         <Input size='small' type='text' placeholder='Search...' value={this.state.query} onChange={this.handleChange} action>
         <input />
-        <Select compact options={options} defaultValue='all'  onChange={this.handleOptionsChange} style={{width: '120px'}}/>
-          <button className="button-submit" onSubmit={this.handleSubmit}>SEARCH</button>
+        <Select compact options={options} defaultValue='all'  onChange={this.handleOptionsChange} style={{width: '160px'}}/>
+          <button className={btnClass} onSubmit={this.handleSubmit}>SEARCH</button>
 
         </Input>
         </form>

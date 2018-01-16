@@ -1,18 +1,21 @@
-import React from 'react';
-import RemoveArticleButton from './RemoveArticleButton';
-import { Divider } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import Article from './Article';
 
-const Articles = (props) =>
-  <div>
-    {props.articles.map(article =>
+class Articles extends Component {
+
+  render() {
+    console.log(this.props.news)
+    const list = this.props.news.map(article =>
+      <Article news={article} />
+    )
+    return(
       <div>
-        <a href={article.url} target="_blank">{article.title}</a>
-        <p>{article.description}</p>
-        <RemoveArticleButton article={article} fetchSavedArticles={props.fetchSavedArticles}/>
-        <Divider />
+        {list}
       </div>
-    )}
-  </div>
+    )
+  }
+}
+
 
 
 export default Articles

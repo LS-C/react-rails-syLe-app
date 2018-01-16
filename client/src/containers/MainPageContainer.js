@@ -3,53 +3,30 @@ import store from 'store';
 import NewsContainer from '../containers/NewsContainer';
 import WeatherContainer from '../containers/WeatherContainer';
 import SocialLinkContainer from '../containers/SocialLinkContainer';
-
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout } from '../actions/login';
+import { fetchProfile } from '../actions/profile';
+import { fetchTrendingArticles, removeArticles } from '../actions/newz';
 
 
-class HomePage extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      userEmail: null
-    }
-  }
+class MainPageContainer extends React.Component {
 
   componentDidMount() {
-    const { userEmail } = this.state;
-    const auth_token = store.get('auth_token');
-    const id = store.get('id')
-    const url = `/users/${id}`
-    const requestHeaders = {
-      'Authorization': 'Bearer ' + auth_token
-    };
-
-    if (!userEmail && this.props.loggedStatus)
-
-    fetch(url, {
-        method: 'get',
-        headers: requestHeaders
-    })
-      .then(res=>res.json())
-      .then(json => this.setState({ userEmail: json.email }))
-      .catch(err => console.log(err));
+    this.props.fetchProfile()
   }
 
-  handleClick = () => {
-    console.log("Hey")
+  componentWillUnmount() {
+    this.props.removeArticles()
   }
 
   renderContent() {
-    const { userEmail } = this.state;
+    const { email } = this.props.profile;
 
     if (this.props.loggedStatus) {
       return (
         <div>
-            <h3>Welcome {userEmail}</h3>
+            <h3>Welcome {email}</h3>
               <SocialLinkContainer />
           <div>
             <WeatherContainer />
@@ -69,6 +46,9 @@ class HomePage extends React.Component {
   }
 
   render() {
+    console.log(this.props.loggedStatus)
+
+    console.log(this.props.topArticles)
     return (
       <div>
       { this.renderContent() }
@@ -78,14 +58,16 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { loggedStatus: state.login.loggedIn }
+  return {
+    loggedStatus: state.login.loggedIn,
+    profile: state.user.profile,
+    topArticles: state.news.trendingArticles
+   }
 }
 
 const mapDispatchToState = dispatch => {
-  return bindActionCreators({ logout }, dispatch )
+  return bindActionCreators({ logout, fetchProfile, fetchTrendingArticles, removeArticles }, dispatch )
 }
 
 
-
-
-export default connect(mapStateToProps, mapDispatchToState)(HomePage);
+export default connect(mapStateToProps, mapDispatchToState)(MainPageContainer);

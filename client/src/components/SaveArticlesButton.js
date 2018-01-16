@@ -22,7 +22,6 @@ class SaveArticlesButton extends Component {
         published_at: this.props.article.publishedAt,
         id: id
     });
-    console.log('from save function', data)
 
     //move this.saveArticle and fetch function into services folder
       fetch("http://localhost:3000/articles", {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { parseDate1 } from '../services/utils';
-import { Form, Button, Input } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
 import store from 'store';
 
 class Profile extends Component {
@@ -38,23 +38,12 @@ class Profile extends Component {
 
 
   render() {
-    const spaceStyle={
-      position: 'absolute',
-      top: '10em'
-    }
-
-    const style={
-      display: 'inline-block'
-    }
-
-    const { email, created_at } = this.props.profile
+    const { first_name, last_name, email, created_at } = this.props.profile
     const { editEmail } = this.state
-    console.log(this.state.email)
-    console.log(this.state.editEmail)
-    console.log(this.props.profile.email)
-
     return(
       <div className="profile">
+        <p>{first_name}</p>
+        <p>{last_name}</p>
         {editEmail ?
         <div>
           <label htmlFor="Email:">Email: </label>
@@ -71,7 +60,6 @@ class Profile extends Component {
         </div> }
         <p>Member Since: {parseDate1(created_at)}</p>
       </div>
-
 
     )
   }

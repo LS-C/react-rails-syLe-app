@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import News from './News'
-
-
+import News from './News';
 
 class NewsShow extends Component {
 
@@ -13,22 +11,15 @@ class NewsShow extends Component {
       }
   }
 
-
   render() {
-    const style= {
-      position: 'absolute',
-      top: '5em',
-    }
-
-    console.log(this.props)
     return (
-      <div style={style}>
-      {this.renderNewsCategory()}
-      {this.props.articles.map(article=>
-        <div>
-          <News article={article} />
+      <div className="news-container">
+        {this.renderNewsCategory()}
+        <div className="news-show">
+          {this.props.articles.map(article =>
+              <News key={article.id} article={article} />
+          )}
         </div>
-      )}
       </div>
     )
   }

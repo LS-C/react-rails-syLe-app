@@ -10,12 +10,15 @@ class SavedArticlesContainer extends React.Component {
     this.props.fetchSavedArticles()
   }
 
+  shouldComponentUpdate(nextProps) {
+    return (this.props.savedArticles === nextProps.savedArticles)
+  }
+
   render() {
-    console.log(this.props)
+    console.log(this.props.savedArticles)
     return(
       <div>
-      <h4>You have {this.props.savedArticles.length} saved articles</h4>
-      <Articles articles={this.props.savedArticles} fetchSavedArticles={this.props.fetchSavedArticles}/>
+        <Articles news={this.props.savedArticles} />
       </div>
     )
   }

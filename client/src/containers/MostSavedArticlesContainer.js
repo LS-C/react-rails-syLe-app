@@ -4,14 +4,6 @@ import { bindActionCreators } from 'redux';
 import { fetchTrendingArticles } from '../actions/newz'
 import TrendingNews from '../components/TrendingNews'
 
-// const style1= {
-//   position: 'absolute',
-//   top: '20em',
-//   right: '1em',
-//   width: '20%',
-//   color: 'black',
-//   fontFamily: "Montserrat"
-// }
 
 class MostSavedArticlesContainer extends Component {
 
@@ -24,13 +16,21 @@ class MostSavedArticlesContainer extends Component {
   }
 
 
-  render() {
+  filterArticleList = () => {
     const a = this.props.articles.filter(article => {
       return article.likes.length > 0
     })
+    return a
+  }
+
+  render() {
+    console.log('from mostSavedArticlesContainer', this.props.articles)
+    // const a = this.props.articles.filter(article => {
+    //   return article.likes.length > 0
+    // })
     return(
       <div>
-        <TrendingNews articles={a} />
+        <TrendingNews articles={this.filterArticleList()} />
       </div>
     )
   }
