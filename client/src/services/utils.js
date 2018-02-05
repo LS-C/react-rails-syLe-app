@@ -92,7 +92,7 @@ export function capitalize(string) {
 export function fetchMovie(data) {
   const query = data
   const q = setQuery(query)
-  const API_KEY = ENV_KEY
+  const API_KEY = ""
   return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${q}`)
   .then(res=>res.json())
 }
