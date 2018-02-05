@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # skip_before_action :verify_authenticity_token, only: [:create]
 
 
-
   prepend SimpleCommand
 
   def show
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 end

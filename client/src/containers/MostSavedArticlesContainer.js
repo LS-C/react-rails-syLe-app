@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { fetchTrendingArticles } from '../actions/newz'
 import TrendingNews from '../components/TrendingNews'
 
-
 class MostSavedArticlesContainer extends Component {
 
   componentDidMount() {
@@ -16,13 +15,21 @@ class MostSavedArticlesContainer extends Component {
   }
 
 
-  render() {
+  filterArticleList = () => {
     const a = this.props.articles.filter(article => {
       return article.likes.length > 0
     })
+    return a
+  }
+
+  render() {
+    console.log('from mostSavedArticlesContainer', this.props.articles)
+    // const a = this.props.articles.filter(article => {
+    //   return article.likes.length > 0
+    // })
     return(
       <div>
-        <TrendingNews articles={a} />
+        <TrendingNews articles={this.filterArticleList()} />
       </div>
     )
   }

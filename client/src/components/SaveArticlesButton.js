@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { Rating } from 'semantic-ui-react';
 import store from 'store';
-import { fetchSavedArticles } from '../actions/news';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import '../containers/News.css'
 
 class SaveArticlesButton extends Component {
+
+  constructor() {
+    super()
+
+    this.state = {
+      saved: false
+    }
+  }
+
+  componentDidMount() {
+    const description = this.props.article.description
+    this._checkSaved(description)
+  }
 
   handleClick = e => {
     const id = store.get('id')
@@ -14,15 +25,16 @@ class SaveArticlesButton extends Component {
 
   handleSubmit  = (e, id) => {
     e.preventDefault()
+    const { title, description, url, urlToImage, publishedAt } = this.props.article
 
     const data = JSON.stringify({
-        title: this.props.article.title,
-        description: this.props.article.description,
-        url: this.props.article.url,
-        published_at: this.props.article.publishedAt,
+        title: title,
+        description: description,
+        url: url,
+        url_image: urlToImage,
+        published_at: publishedAt,
         id: id
     });
-    console.log('from save function', data)
 
     //move this.saveArticle and fetch function into services folder
       fetch("http://localhost:3000/articles", {
@@ -34,16 +46,15 @@ class SaveArticlesButton extends Component {
         body: data
       })
       .then( res => res.json() )
-      .then(json=> this.saveArticle(json.id, id, this.props.article.description))
+      .then(json=> this.saveArticle(json.id, id, description))
   }
 
   saveArticle = (articleId, id, description) => {
     const data = JSON.stringify({
         article_id: articleId,
         user_id: id,
-        article_description: description
+        article_description: description,
     });
-    console.log(data)
     fetch(`http://localhost:3000/like`, {
       method: "post",
       credentials: 'same-origin',
@@ -54,21 +65,43 @@ class SaveArticlesButton extends Component {
     })
     .then( res => res.json() )
     .then(json=> this.props.fetchSavedArticles())
+    .then(json=> this._checkSaved(description))
+  }
+
+  _checkSaved = (description) => {
+    const list= this.props.savedArticles.filter(article =>
+      article.description === description
+    )
+    if (list.length === 1) {
+      this.setState({ saved: true })
+    }
+  }
+
+  _renderButton = () => {
+    if (this.state.saved) {
+      return(
+        <p style={{color: 'pink'}}>Article Saved</p>
+      )
+      } else {
+        return (
+          <button className="button-save" onClick={this.handleClick}>SAVE ARTICLE</button>
+
+        )
+      }
   }
 
   render() {
     return(
-      <div>
-        <form>
-          <Rating maxRating={1} icon='star' size='small' onClick={this.handleClick}/>
-        </form>
+      <div className='news1'>
+        {this._renderButton()}
       </div>
     )
   }
 }
 
-const mapDispatchToState = dispatch => {
-  return bindActionCreators({ fetchSavedArticles }, dispatch )
+const mapStateToProps = state => {
+    return { savedArticles: state.news.savedArticles }
 }
 
-export default connect(null, mapDispatchToState)(SaveArticlesButton)
+
+export default connect(mapStateToProps, null)(SaveArticlesButton)

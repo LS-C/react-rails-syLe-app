@@ -1,0 +1,44 @@
+.query-bar {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat'
+}
+
+.font {
+  font-family: Montserrat;
+}
+
+.recommend-modal {
+  display: block;
+  width: 100px;
+}
+
+.button {
+  border: 0.4px solid grey;
+  height: 36px;
+  width: 40px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: Montserrat;
+}
+
+.button:hover {
+  background-color: grey;
+}
+
+.button a {
+  color: grey;
+}
+
+.recommend-card {
+  font-family: 'Montserrat';
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 12px;
+  margin-right: 2em;
+}

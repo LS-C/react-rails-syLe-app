@@ -1,18 +1,16 @@
 import React from 'react';
-import RemoveArticleButton from './RemoveArticleButton';
-import { Divider } from 'semantic-ui-react';
+import Article from './Article';
 
-const Articles = (props) =>
-  <div>
-    {props.articles.map(article =>
-      <div>
-        <a href={article.url} target="_blank">{article.title}</a>
-        <p>{article.description}</p>
-        <RemoveArticleButton article={article} fetchSavedArticles={props.fetchSavedArticles}/>
-        <Divider />
-      </div>
-    )}
-  </div>
+const Articles = (props) => {
+  const list = props.news.map((article, index) =>
+    <Article key={index} index={index+1} news={article} fetchSavedArticles={props.fetchSavedArticles} />
+  )
+  return(
+    <div>
+      {list}
+    </div>
+  )
+}
 
 
 export default Articles

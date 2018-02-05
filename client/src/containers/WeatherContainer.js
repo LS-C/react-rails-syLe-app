@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchWeather from '../actions/weathers';
 import { Loader, Segment } from 'semantic-ui-react';
-
+import './Weather.css'
 
 class WeatherContainer extends Component {
 
@@ -12,20 +12,12 @@ class WeatherContainer extends Component {
     this.props.fetchWeather()
   }
 
-
-
   render() {
     const display_location = {...this.props.weatherData.display_location}
-    const style= {
-      position: 'absolute',
-      top: '8em',
-      right: '1em',
-      color: 'black'
-    }
     return (
       <div>
         {this.props.loading ?
-          <div style={style}>
+          <div className="weather-container">
           <Segment>
             <Loader active />
           </Segment>

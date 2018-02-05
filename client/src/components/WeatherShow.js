@@ -1,35 +1,15 @@
 import React from 'react';
-
-const style= {
-  position: 'absolute',
-  top: '8em',
-  right: '1em',
-  color: 'black',
-  fontFamily: "Montserrat"
-}
-
-const weather= {
-  width: '10%',
-  height: '10%'
-}
-
-const weather2= {
-  width: '2.6em',
-  height: '2.6em'
-}
-
-
-
+import '../containers/Weather.css'
 
 const WeatherShow = (props) =>
-    <div style={style}>
+    <div className="weather-container">
       <p>{props.location}</p>
       <p style={{display: "inline-block"}}>{props.weather.weather}</p>
-      <img src={require(`../images/weatherIcons/Overcast.png`)} alt="" style={weather2}/> <br/ >
-      <p style={{display: "inline-block"}}>{props.weather.temp_f}</p><img src={require('../images/weatherIcons/if_weather_22_2682829.png')} alt="" style={weather} />
-
-
-
+      <img src={require(`../images/weatherIcons/Overcast.png`)}
+      alt="" className="weather2"/> <br/ >
+      <p style={{display: "inline-block"}}>{props.weather.temp_f}</p>
+      <img src={require('../images/weatherIcons/if_weather_22_2682829.png')}
+      alt="" className="weather" />
     </div>
 
 export default WeatherShow

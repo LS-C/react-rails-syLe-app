@@ -7,12 +7,12 @@ import { loginStatus } from '../actions/login';
 import { Form, Message } from 'semantic-ui-react';
 import '../App.css'
 
-
 class LoginPage extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
+  constructor() {
+    super()
+
+    this.state ={
       email: '',
       password: '',
       renderError: false
@@ -44,35 +44,36 @@ class LoginPage extends Component {
         this.props.history.push('/')
       } else {
         this.setState({ renderError: true })
-        console.log('error')
       }
     })
   }
 
   render() {
     return (
-      <div className='login-form'>
-      <h2 className="font">Log In</h2>
-        <Form error onSubmit={this.handleSubmit}>
-            <Form.Input onChange={this.handleChange}
-            onFocus={this.handleOnFocus}
-            type="email"
-            name="email"
-            value={this.state.email} label='Email' placeholder="Enter your e-mail"
-            width={4}/>
-            <Form.Input onChange={this.handleChange}
-            type="password"
-            name="password"
-            value={this.state.password}
-            label='Password'
-            placeholder="Enter your password"
-            width={4}
-            />
-            {this.state.renderError ?
-            <Message error content='Please enter valid e-mail address / password.' width={6}/>
-            : null }
-            <button className="button-submit" onSubmit={this.handleSubmit}>SUBMIT</button>
-        </Form>
+      <div className="login-page">
+        <div className='login-form'>
+        <h2 className="font">Log In</h2>
+          <Form error onSubmit={this.handleSubmit}>
+              <Form.Input onChange={this.handleChange}
+              onFocus={this.handleOnFocus}
+              type="email"
+              name="email"
+              value={this.state.email} label='Email' placeholder="Enter your e-mail"
+              width={4}/>
+              <Form.Input onChange={this.handleChange}
+              type="password"
+              name="password"
+              value={this.state.password}
+              label='Password'
+              placeholder="Enter your password"
+              width={4}
+              />
+              {this.state.renderError ?
+              <Message error content='Please enter valid e-mail address / password.' width={6}/>
+              : null }
+              <button className="button-submit" onSubmit={this.handleSubmit}>SUBMIT</button>
+          </Form>
+        </div>
       </div>
     );
   }

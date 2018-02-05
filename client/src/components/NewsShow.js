@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import News from './News'
-
-
+import News from './News';
+import SaveArticlesButton from './SaveArticlesButton';
+import '../containers/News.css';
+import { Divider } from 'semantic-ui-react';
 
 class NewsShow extends Component {
 
-  renderNewsCategory = () => {
+  _renderNewsCategory = () => {
       if (this.props.loading) {
         return (
           <div><h3>{"Today's top news on "}{this.props.query}</h3><br/></div>
@@ -13,25 +14,22 @@ class NewsShow extends Component {
       }
   }
 
-
   render() {
-    const style= {
-      position: 'absolute',
-      top: '5em'
-    }
-    console.log(this.props)
+    const news = this.props.articles.map((article, index)=>
+    <div className="news-card" key={index}>
+      <News article={article} />
+        <Divider />
+      <SaveArticlesButton article={article} fetchSavedArticles={this.props.fetchSavedArticles} />
+    </div>
+    )
     return (
-      <div style={style}>
-      {this.renderNewsCategory()}
-      {this.props.articles.map(article=>
-        <div>
-          <News article={article} />
-        </div>
-      )}
+      <div className="news-container">
+            {news}
       </div>
     )
   }
 }
+// {this.renderNewsCategory()}
 
 
 export default NewsShow
