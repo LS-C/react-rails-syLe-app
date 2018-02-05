@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout } from '../actions/login';
 
-
 class HomePage extends React.Component {
   constructor() {
     super();

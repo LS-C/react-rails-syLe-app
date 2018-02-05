@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Select, Input } from 'semantic-ui-react';
 import { options, changeSourceFormat } from '../services/utils';
-import '../App.css'
+import '../containers/News.css'
 
 class NewsQueryBar extends Component {
-  state = {
-    query: "",
-    source: "all",
-    sourceLength: ""
+  constructor() {
+    super()
+
+    this.state = {
+      query: "",
+      source: "all",
+      sourceLength: ""
+    }
   }
 
   handleChange = e => {
@@ -29,7 +33,7 @@ class NewsQueryBar extends Component {
      })
   }
 
-  buttonClassNames = () => {
+  _buttonClassNames = () => {
     if (this.state.source.length < 14 ) {
       return 'button-submit'
     } else {
@@ -38,16 +42,15 @@ class NewsQueryBar extends Component {
   }
 
   render() {
-    const btnClass = this.buttonClassNames()
+    const btnClass = this._buttonClassNames()
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <Input size='small' type='text' placeholder='Search...' value={this.state.query} onChange={this.handleChange} action>
-        <input />
-        <Select compact options={options} defaultValue='all'  onChange={this.handleOptionsChange} style={{width: '160px'}}/>
-          <button className={btnClass} onSubmit={this.handleSubmit}>SEARCH</button>
-
-        </Input>
+          <Input size='small' type='text' placeholder='Search...' value={this.state.query} onChange={this.handleChange} action>
+          <input />
+          <Select compact options={options} defaultValue='all'  onChange={this.handleOptionsChange} style={{width: '160px'}}/>
+            <button className={btnClass} onSubmit={this.handleSubmit}>SEARCH</button>
+          </Input>
         </form>
       </div>
     )

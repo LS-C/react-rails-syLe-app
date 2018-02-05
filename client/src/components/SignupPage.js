@@ -39,15 +39,14 @@ class SignupPage extends Component {
         password_confirmation: passwordConfirmation
       }
     });
-    console.log(data)
 
-    const data1 = JSON.stringify({
+    const loginData = JSON.stringify({
         email: email,
         password: password
     });
 
     signup(data)
-    .then(json=>login(data1))
+    .then(json=>login(loginData))
     .then(json=> {
       const { auth_token, id } = json;
       store.set('auth_token', auth_token );

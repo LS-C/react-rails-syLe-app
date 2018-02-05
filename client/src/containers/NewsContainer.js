@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NewsQueryBar from '../components/NewsQueryBar';
 import NewsShow from '../components/NewsShow';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchNews, fetchNewsWithSource, fetchHeadlines } from '../actions/newz';
+import { fetchNews, fetchNewsWithSource, fetchHeadlines, fetchAllNews } from '../actions/newz';
 
-class NewsContainer extends React.Component {
+class NewsContainer extends Component {
 
-  state = {
-    query: "",
-    source: "",
-    articles: []
+  constructor() {
+    super()
+
+    this.state = {
+      query: "",
+      source: ""
+    }
   }
-
 
 
   handleOnSubmit = (query, source) => {
     this.setState({ query, source })
-    console.log(source)
-    if (source === 'all') {
-      this.props.fetchNews(query)
-    } else if (query !=='' && source){
+    if (query === "" && source === 'all') {
+      this.props.fetchNews()
+    } else if (query !== "" && source === 'all') {
+      this.props.fetchAllNews(query)
+    } else if (query !=='' && source) {
       this.props.fetchNewsWithSource(query, source)
     } else if (query ==="" && source) {
       this.props.fetchHeadlines(source)
@@ -28,34 +31,33 @@ class NewsContainer extends React.Component {
   }
 
   render() {
-
-    const style1= {
-      position: 'absolute',
-      top: '30%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      fontFamily: "Montserrat",
-    }
-
     return (
       <div style={style1}>
         <NewsQueryBar handleOnSubmit={this.handleOnSubmit}/>
-        <NewsShow query={this.state.query} loading={this.props.loading} articles={this.props.articles} />
+        <NewsShow query={this.state.query} loading={this.props.loading} articles={this.props.articles} fetchSavedArticles={this.props.fetchSavedArticles}/>
       </div>
     )
   }
 }
 
+const style1= {
+  position: 'absolute',
+  top: '30%',
+  left: '25%',
+  right: '35%',
+  transform: 'translate(-50%, -50%)',
+  fontFamily: "Montserrat",
+}
+
 const mapStateToProps = (state) => {
   return {
     articles: state.news.articles,
-    loading: state.news.loading,
-    savedArticles: state.news.savedArticles
+    loading: state.news.loading
    }
 }
 
 const mapDispatchToState = (dispatch) => {
-  return bindActionCreators({ fetchNews, fetchNewsWithSource, fetchHeadlines }, dispatch)
+  return bindActionCreators({ fetchNews, fetchNewsWithSource, fetchHeadlines, fetchAllNews }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToState)(NewsContainer)

@@ -47,11 +47,11 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :description, :url, :published_at)
+    params.require(:article).permit(:title, :description, :url, :url_image, :published_at)
   end
 
   def saves_params
     params.require(:saves).permit(:article_id, :user_id, :article_description)
   end
-  
+
 end

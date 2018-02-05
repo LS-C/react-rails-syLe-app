@@ -6,30 +6,25 @@ import MainPageContainer from './containers/MainPageContainer';
 import NavBar from './components/NavBar';
 import SavedArticlesContainer from './containers/SavedArticlesContainer'
 import MostSavedArticlesContainer from './containers/MostSavedArticlesContainer';
-import RecommendsContainer from './containers/RecommendsContainer';
 import ProfileContainer from './containers/ProfileContainer';
 
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
 class App extends Component {
 
-  logInRoutes() {
+  _logInRoutes() {
     if (this.props.loggedIn) {
       return (
         <div>
           <Route exact path='/toparticles' component={MostSavedArticlesContainer} />
           <Route exact path='/articles' component={SavedArticlesContainer} />
-          <Route exact path='/recommendations' component={RecommendsContainer} />
           <Route exact path='/profile' component={ProfileContainer} />
         </div>
       )
     }
   }
-
-  // shouldComponentUpdate(nextProps) {
-  //   return nextProps !== this.props.loggedIn
-  // }
 
   render() {
     return (
@@ -38,7 +33,7 @@ class App extends Component {
           <Route exact path='/' component={MainPageContainer} />
           <Route exact path='/login' component={LoginPage} />
           <Route exact path='/signup' component={SignupPage} />
-          {this.logInRoutes()}
+          {this._logInRoutes()}
       </div>
     );
   }

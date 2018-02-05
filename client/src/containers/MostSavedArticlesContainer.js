@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { fetchTrendingArticles } from '../actions/newz'
 import TrendingNews from '../components/TrendingNews'
 
-
 class MostSavedArticlesContainer extends Component {
 
   componentDidMount() {

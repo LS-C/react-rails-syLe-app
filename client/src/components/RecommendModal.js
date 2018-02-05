@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { Modal, Icon, Header } from 'semantic-ui-react';
+import { Modal, Header } from 'semantic-ui-react';
 import { fetchContent } from '../services/utils';
+import '../containers/Recommends.css'
 
 class RecommendModal extends Component {
+  constructor() {
+    super()
 
-  state = {
-    content: []
+    this.state = {
+      content: []
+    }
   }
+
 
   componentDidMount() {
     fetchContent(this.props.info)
@@ -20,16 +25,12 @@ class RecommendModal extends Component {
 
 
   render() {
-    const style = {
-    display: 'block',
-    width: '100px'
-    }
     return(
         <div>
-          <Modal trigger={ <Icon name='plus' /> } >
+          <Modal trigger={ <button className="button">MORE INFO</button> } >
           <Modal.Header>{this.props.info}</Modal.Header>
             <Modal.Content image>
-              <Modal.Description style={style}>
+              <Modal.Description className="recommend-modal">
                 <Header></Header>
                 <p>{this.state.content}</p>
               </Modal.Description>
@@ -39,7 +40,6 @@ class RecommendModal extends Component {
     )
   }
 }
-
 
 export default RecommendModal
 

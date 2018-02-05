@@ -3,8 +3,7 @@ import RecommendsQueryBar from '../components/RecommendsQueryBar';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchRecommends } from '../actions/recommends';
-import RecommendsShow from '../components/RecommendsShow';
-
+import RecommendsList from '../components/RecommendsList';
 
 class RecommendsContainer extends Component {
 
@@ -13,11 +12,10 @@ class RecommendsContainer extends Component {
   }
 
   render() {
-    console.log(this.props.recommends)
     return (
       <div>
         <RecommendsQueryBar handleSubmit={this.handleSubmit}/>
-        <RecommendsShow recommends={this.props.recommends}/>
+        <RecommendsList recommends={this.props.recommends}/>
       </div>
     )
   }

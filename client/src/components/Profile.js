@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { parseDate1 } from '../services/utils';
 import { Input } from 'semantic-ui-react';
 import store from 'store';
+import '../containers/Profile.css'
 
 class Profile extends Component {
+    constructor() {
+      super()
 
-    state = {
-      editEmail: false,
-      email: ''
+      this.state = {
+        editEmail: false,
+        email: ''
+      }
     }
+
 
   handleEditEmailChange = () => {
     this.setState({ editEmail: !this.state.editEmail})
@@ -42,20 +47,28 @@ class Profile extends Component {
     const { editEmail } = this.state
     return(
       <div className="profile">
-        <p>{first_name}</p>
-        <p>{last_name}</p>
+        <p className="profile-inline">{first_name} {last_name}</p>
         {editEmail ?
         <div>
           <label htmlFor="Email:">Email: </label>
-          <Input type='email' defaultValue={email} onChange={this.handleChange} style={{display: "inline-block", margin: '1em'}}/>
-          <button className="button-submit" onClick={this.handleSubmit}>SUBMIT</button>
-
+          <Input type='email' defaultValue={email}
+          onChange={this.handleChange}
+          className="profile-inline"/>
+          <button className="button-submit"
+            onClick={this.handleSubmit}>
+            SUBMIT
+          </button>
+          <button className="button-x"
+            onClick={this.handleEditEmailChange}>
+            X
+          </button>
         </div>
         :
         <div>
-        <p style={{display: "inline-block", margin: '1em'}}>Email: </p><p style={{display: "inline-block", margin: '1em'}}>{email}</p>
+          <p className="profile-inline">Email: </p>
+          <p className="profile-inline">{email}</p>
 
-        <button className="button-submit" onClick={this.handleEditEmailChange}>EDIT</button>
+          <button className="button-submit" onClick={this.handleEditEmailChange}>EDIT</button>
 
         </div> }
         <p>Member Since: {parseDate1(created_at)}</p>

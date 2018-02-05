@@ -1,0 +1,17 @@
+.weather-container {
+  position: absolute;
+  top: 8em;
+  right: 1em;
+  color: black;
+  font-family: Montserrat;
+}
+
+.weather {
+  width: 10%;
+  height: 10%;
+}
+
+.weather2 {
+  width: 2.6em;
+  height: 2.6em;
+}

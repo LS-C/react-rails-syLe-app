@@ -1,0 +1,31 @@
+.profile {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Montserrat;
+}
+
+
+.profile-inline {
+  display: inline-block;
+  margin: 1em;
+}
+
+.button-x {
+  border: 0.4px solid grey;
+  height: 36px;
+  width: 40px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-family: Montserrat;
+}
+
+.button-x:hover {
+  background-color: #FFFFFF;
+}
+
+.button-x a {
+  color: grey;
+}

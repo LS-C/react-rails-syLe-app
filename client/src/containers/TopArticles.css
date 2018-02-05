@@ -1,0 +1,16 @@
+.top-articles {
+  position: absolute;
+  top: 20em;
+  right: 1em;
+  left: 72em;
+  color: black;
+  font-family: Montserrat;
+}
+
+.top-article-cards {
+  position: absolute;
+  left: 5em;
+  color: black;
+  font-family: Montserrat;
+  text-align: center;
+}

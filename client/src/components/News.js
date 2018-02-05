@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import SaveArticlesButton from './SaveArticlesButton';
-import { parseDate } from '../services/utils';
-import { Divider } from 'semantic-ui-react'
+import React from 'react';
+import { parseDate2 } from '../services/utils';
+import { Item } from 'semantic-ui-react'
 
-class News extends Component {
-
-  render() {
-    return(
-      <div className="news">
-        <h3>{this.props.article.title}</h3> <br/>
-        <p>{this.props.article.description}</p>
-        <p>{parseDate(this.props.article.publishedAt)}</p>
-        <p>{this.props.article.source.name}</p> <br/>
-        <SaveArticlesButton article={this.props.article}/>
-        <Divider />
-      </div>
-    )
-  }
+const News = (props) => {
+  const { title, description, publishedAt,urlToImage } = props.article
+  const source = props.article.source.name
+  const date = parseDate2(publishedAt)
+  return (
+    <Item>
+      <Item.Image size='large' src={urlToImage} />
+        <Item.Content>
+          <Item.Header className="news-header" as='a'>{title}</Item.Header>
+          <p>{source}</p>
+          <Item.Description>
+            <p>{description}</p>
+            <p>{date}</p>
+          </Item.Description>
+        </Item.Content>
+    </Item>
+  )
 }
 
 

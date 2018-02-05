@@ -11,7 +11,13 @@ export function loginStatus() {
   }
 }
 
+export function authenticateUser() {
+  return ({ type: 'AUTHENTICATE_USER' });
+}
+
+
 export function logout() {
     store.remove("auth_token")
+    store.remove("id")
     return ({ type: 'LOG_OUT' });
 }
